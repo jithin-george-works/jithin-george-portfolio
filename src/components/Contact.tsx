@@ -1,9 +1,14 @@
+// 
+
+
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   const contactInfo = [
@@ -23,7 +28,7 @@ const Contact = () => {
       icon: <MapPin className="w-6 h-6" />,
       title: "Location",
       value: "Kochi, Kerala, India",
-      href: "#"
+      href: "https://www.google.com/maps/place/Edappally,+Kochi,+Kerala/@10.0168564,76.2753103,13.25z/data=!4m6!3m5!1s0x3b080da53444d5e9:0xb46c57c6b1bc9aff!8m2!3d10.0260688!4d76.3124753!16zL20vMDg3NWMw?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D"
     }
   ];
 
@@ -31,7 +36,7 @@ const Contact = () => {
     {
       icon: <Github className="w-6 h-6" />,
       name: "GitHub",
-      href: "#",
+      href: "https://github.com/jithin-george-works",
       color: "hover:text-gray-900 dark:hover:text-gray-100"
     },
     {
@@ -41,6 +46,37 @@ const Contact = () => {
       color: "hover:text-blue-600"
     }
   ];
+
+  // EmailJS integration
+  const form = useRef<HTMLFormElement>(null);
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSending(true);
+    setError(null);
+
+    emailjs
+      .sendForm(
+        "service_46m9aps",    // <-- replace with your EmailJS service ID
+        "template_kfvwy3q",   // <-- replace with your EmailJS template ID
+        form.current!,
+        "LsHezOLno7vdDoW0P"     // <-- replace with your EmailJS public key
+      )
+      .then(
+        () => {
+          setSent(true);
+          setSending(false);
+          if (form.current) form.current.reset();
+        },
+        () => {
+          setError("Failed to send message. Please try again.");
+          setSending(false);
+        }
+      );
+  };
 
   return (
     <section className="py-20 px-4 bg-secondary/20">
@@ -142,7 +178,7 @@ const Contact = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <form className="space-y-6">
+                <form ref={form} onSubmit={sendEmail} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
@@ -151,7 +187,9 @@ const Contact = () => {
                       viewport={{ once: true }}
                     >
                       <Input
+                        name="name"
                         placeholder="Your Name"
+                        required
                         className="border-border/50 focus:border-primary transition-colors"
                       />
                     </motion.div>
@@ -162,8 +200,10 @@ const Contact = () => {
                       viewport={{ once: true }}
                     >
                       <Input
+                        name="email"
                         type="email"
                         placeholder="Your Email"
+                        required
                         className="border-border/50 focus:border-primary transition-colors"
                       />
                     </motion.div>
@@ -176,7 +216,9 @@ const Contact = () => {
                     viewport={{ once: true }}
                   >
                     <Input
+                      name="title"
                       placeholder="Subject"
+                      required
                       className="border-border/50 focus:border-primary transition-colors"
                     />
                   </motion.div>
@@ -188,8 +230,10 @@ const Contact = () => {
                     viewport={{ once: true }}
                   >
                     <Textarea
+                      name="message"
                       placeholder="Your Message"
                       rows={6}
+                      required
                       className="border-border/50 focus:border-primary transition-colors resize-none"
                     />
                   </motion.div>
@@ -204,10 +248,13 @@ const Contact = () => {
                       type="submit" 
                       className="w-full group hover:scale-[1.02] transition-transform duration-300"
                       size="lg"
+                      disabled={sending}
                     >
                       <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      Send Message
+                      {sending ? "Sending..." : sent ? "Message Sent!" : "Send Message"}
                     </Button>
+                    {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+                    {sent && !error && <p className="text-green-600 text-sm mt-2">Your message has been sent!</p>}
                   </motion.div>
                 </form>
               </CardContent>

@@ -2,62 +2,135 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Zap, Search, Cloud, BarChart3 } from "lucide-react";
+import { ExternalLink, Github, Zap, Search, Cloud, BarChart3,Bot,Cpu } from "lucide-react";
 
 const Projects = () => {
   const projects = [
     {
       title: "Knowledge Explorer",
-      description: "A multilingual AI search tool leveraging Azure OpenAI and Translator Services with fuzzy glossary support for domain-specific queries. Features intelligent search capabilities and real-time translation.",
-      technologies: ["Azure OpenAI", "LangChain", "Python", "Translator API", "Vector DB"],
+      description:
+        "A multilingual AI search tool leveraging Azure OpenAI and Translator Services with fuzzy glossary support for domain-specific queries. Features intelligent search capabilities and real-time translation.",
+      technologies: [
+        "Azure OpenAI",
+        "LangChain",
+        "Python",
+        "Translator API",
+        "Vector DB",
+      ],
       icon: <Search className="w-8 h-8" />,
       gradient: "from-blue-500 to-cyan-500",
       features: [
         "Multilingual search capabilities",
         "Fuzzy glossary matching",
         "Real-time translation",
-        "Domain-specific query optimization"
-      ]
+        "Domain-specific query optimization",
+      ],
     },
     {
       title: "RAG Pipeline System",
-      description: "End-to-end Retrieval Augmented Generation pipelines with batch processing tools including folder upload, web scraping, and automated chart generation for enhanced data handling.",
-      technologies: ["LlamaIndex", "Vector Databases", "FastAPI", "Python", "Batch Processing"],
+      description:
+        "End-to-end Retrieval Augmented Generation pipelines with batch processing tools including folder upload, web scraping, and automated chart generation for enhanced data handling.",
+      technologies: [
+        "LlamaIndex",
+        "Vector Databases",
+        "FastAPI",
+        "Python",
+        "Batch Processing",
+      ],
       icon: <Zap className="w-8 h-8" />,
       gradient: "from-purple-500 to-pink-500",
       features: [
         "Automated data ingestion",
         "Intelligent document processing",
         "Custom API endpoints",
-        "Real-time chart generation"
-      ]
+        "Real-time chart generation",
+      ],
     },
     {
       title: "Weather Prediction System",
-      description: "Advanced weather event prediction using hybrid Autoencoder-ARIMA model with Bidirectional LSTM and DNN to forecast AQI, environmental features, and heatwave occurrences.",
-      technologies: ["Deep Learning", "LSTM", "ARIMA", "Python", "TensorFlow", "Time Series"],
+      description:
+        "Advanced weather event prediction using hybrid Autoencoder-ARIMA model with Bidirectional LSTM and DNN to forecast AQI, environmental features, and heatwave occurrences.",
+      technologies: [
+        "Deep Learning",
+        "LSTM",
+        "ARIMA",
+        "Python",
+        "TensorFlow",
+        "Time Series",
+      ],
       icon: <Cloud className="w-8 h-8" />,
       gradient: "from-green-500 to-emerald-500",
       features: [
         "Hybrid ML/DL approach",
         "Multi-parameter forecasting",
         "Real-time weather analysis",
-        "Environmental impact assessment"
-      ]
+        "Environmental impact assessment",
+      ],
     },
     {
       title: "Scalable Backend Systems",
-      description: "High-performance backend architecture supporting multiple AI solutions with optimized API performance, achieving 40% improvement in response times and enhanced scalability.",
-      technologies: ["Node.js", "Python", "API Optimization", "Microservices", "Load Balancing"],
+      description:
+        "High-performance backend architecture supporting multiple AI solutions with optimized API performance, achieving 40% improvement in response times and enhanced scalability.",
+      technologies: [
+        "Node.js",
+        "Python",
+        "API Optimization",
+        "Microservices",
+        "Load Balancing",
+      ],
       icon: <BarChart3 className="w-8 h-8" />,
       gradient: "from-orange-500 to-red-500",
       features: [
         "40% performance improvement",
         "Microservices architecture",
         "Auto-scaling capabilities",
-        "Enterprise-grade security"
-      ]
-    }
+        "Enterprise-grade security",
+      ],
+    },
+    {
+      title: "Agentic Workflow Orchestrator",
+      description:
+        "An intelligent multi-agent system leveraging LangGraph and CrewAI for orchestrating autonomous task execution, tool coordination, and reasoning across distributed workflows in enterprise AI systems.",
+      technologies: [
+        "LangGraph",
+        "CrewAI",
+        "LangChain",
+        "Azure OpenAI",
+        "Python",
+        "Vector Databases",
+      ],
+      icon: <Bot className="w-8 h-8" />,
+      gradient: "from-indigo-500 to-sky-500",
+      features: [
+        "Agent-based task planning and collaboration",
+        "Dynamic memory management and reasoning",
+        "Tool invocation using CrewAI with contextual awareness",
+        "Integrated RAG pipelines for knowledge grounding",
+      ],
+    },
+    {
+      title: "Model Fine-Tuning & Optimization Suite",
+      description:
+        "Developed a fine-tuning pipeline using PEFT, LoRA, and QLoRA for optimizing LLMs like GPT and LLaMA, with RLHF-based evaluation for improved domain alignment and response quality.",
+      technologies: [
+        "PEFT",
+        "LoRA",
+        "QLoRA",
+        "RLHF",
+        "Transformers",
+        "Hugging Face",
+        "PyTorch",
+        "LangChain",
+      ],
+      icon: <Cpu className="w-8 h-8" />,
+      gradient: "from-fuchsia-500 to-purple-600",
+      features: [
+        "Custom LoRA and QLoRA fine-tuning for LLMs",
+        "RLHF-driven performance evaluation and feedback loop",
+        "Training optimization with mixed precision and gradient checkpointing",
+        "Deployed fine-tuned models into RAG-based production pipelines",
+      ],
+    },
   ];
 
   return (
@@ -141,7 +214,7 @@ const Projects = () => {
                     </div>
                   </div>
 
-                  <div className="flex gap-3 pt-4">
+                  {/* <div className="flex gap-3 pt-4">
                     <Button 
                       variant="outline" 
                       size="sm" 
@@ -158,7 +231,7 @@ const Projects = () => {
                       <ExternalLink className="mr-2 h-4 w-4" />
                       Live Demo
                     </Button>
-                  </div>
+                  </div> */}
                 </CardContent>
               </Card>
             </motion.div>

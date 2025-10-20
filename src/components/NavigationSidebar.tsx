@@ -38,7 +38,7 @@ const NavigationSidebar = () => {
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="fixed left-4 top-1/2 -translate-y-1/2 z-50"
+        className="fixed left-4 top-5 -translate-y-1/2 z-50"
       >
         <Button
           onClick={() => setIsOpen(!isOpen)}
@@ -58,7 +58,7 @@ const NavigationSidebar = () => {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -300, opacity: 0 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed left-4 top-1/2 -translate-y-1/2 z-40 w-64 bg-background/95 backdrop-blur-md border border-border/50 rounded-lg shadow-2xl p-4"
+            className="fixed left-4 top-16 -translate-y-1/2 z-40 w-64 bg-background/95 backdrop-blur-md border border-border/50 rounded-lg shadow-2xl p-4"
           >
             <h3 className="text-lg font-semibold text-primary mb-4">Navigation</h3>
             <nav className="space-y-2">

@@ -14,15 +14,16 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="space-y-6"
         >
-          <motion.h1 
-            className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent"
+          <motion.h1
+            className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text"
+            style={{ color: "#9b99999c" }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
             JITHIN GEORGE
           </motion.h1>
-          
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -30,7 +31,7 @@ const Hero = () => {
             className="relative"
           >
             <h2 className="text-2xl md:text-4xl font-light text-muted-foreground mb-4">
-              SOFTWARE ENGINEER
+              AI/ML ENGINEER
             </h2>
             <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto"></div>
           </motion.div>
@@ -41,7 +42,9 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Backend Developer specializing in AI solutions with Python, Node.js, and cutting-edge technologies like LangChain and Vector Databases.
+            AI/ML Engineer skilled in Python, FastAPI, and Node.js,
+            building GenAI, NLP, and Deep Learning solutions with LangChain and Vector DBs.
+
           </motion.p>
 
           <motion.div
@@ -50,22 +53,28 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <Button 
-              variant="default" 
-              size="lg" 
-              className="group hover:scale-105 transition-transform duration-300"
-            >
-              <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" />
-              Download Resume
-            </Button>
-            
-            <Button 
-              variant="outline" 
+            <Button
+              asChild
+              variant="default"
               size="lg"
               className="group hover:scale-105 transition-transform duration-300"
             >
-              <Mail className="mr-2 h-4 w-4" />
-              Get In Touch
+              <a href="/Jithin-Resume-AI-Engineer.pdf" download>
+                <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" />
+                Download Resume
+              </a>
+            </Button>
+
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="group hover:scale-105 transition-transform duration-300"
+            >
+              <a href="mailto:jithin.george.w@gmail.com">
+                <Mail className="mr-2 h-4 w-4" />
+                jithin.george.w@gmail.com
+              </a>
             </Button>
           </motion.div>
 
@@ -76,9 +85,21 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1 }}
           >
             {[
-              { icon: Github, href: "#", label: "GitHub" },
-              { icon: Linkedin, href: "https://www.linkedin.com/in/jithu010", label: "LinkedIn" },
-              { icon: Mail, href: "mailto:jithin.george.w@gmail.com", label: "Email" }
+              {
+                icon: Github,
+                href: "https://github.com/jithin-george-works",
+                label: "GitHub",
+              },
+              {
+                icon: Linkedin,
+                href: "https://www.linkedin.com/in/jithu010",
+                label: "LinkedIn",
+              },
+              // {
+              //   icon: Mail,
+              //   href: "mailto:jithin.george.w@gmail.com",
+              //   label: "Email",
+              // },
             ].map(({ icon: Icon, href, label }, index) => (
               <motion.a
                 key={label}

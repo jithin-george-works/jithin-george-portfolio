@@ -64,7 +64,7 @@ const Education = () => {
                           {edu.degree}
                         </CardTitle>
                         {edu.specialization && (
-                          <p className="text-lg text-accent font-medium mt-1">
+                          <p className="text-lg text-primary group-hover:text-accent transition-colors">
                             Specialization in {edu.specialization}
                           </p>
                         )}

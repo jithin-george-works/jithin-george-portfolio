@@ -17,17 +17,17 @@ const Skills = () => {
     {
       title: "Backend Development",
       skills: [
-        { name: "Node.js", icon: "🟢", level: 90 },
-        { name: "FastAPI", icon: "⚡", level: 88 },
+        { name: "Node.js", icon: "🟢", level: 80 },
+        { name: "FastAPI", icon: "⚡", level: 90 },
         { name: "SQL", icon: "🗃️", level: 85 },
-        { name: "MongoDB", icon: "🍃", level: 82 },
-        { name: "JavaScript", icon: "📜", level: 90 }
+        { name: "MongoDB", icon: "🍃", level: 75 },
+        { name: "JavaScript", icon: "📜", level: 80 },
       ]
     },
     {
       title: "Frontend & Tools",
       skills: [
-        { name: "React", icon: "⚛️", level: 85 },
+        { name: "React", icon: "⚛️", level: 75 },
         { name: "Angular", icon: "🅰️", level: 80 },
         { name: "Model Context Protocol", icon: "🔧", level: 85 },
         { name: "LLMs", icon: "🤖", level: 90 },
