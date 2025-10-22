@@ -54,17 +54,19 @@ const Education = () => {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="hover:shadow-2xl transition-all duration-500 border-l-4 border-l-primary group">
+              <Card className="hover:shadow-2xl transition-all duration-500 border-l-4 border-l-primary group hover:scale-[1.02]">
+
+              {/* <Card className="hover:shadow-2xl transition-all duration-500 border-l-4 border-l-primary group"> */}
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <div className="flex items-start gap-4">
                       <div className="text-4xl">{edu.icon}</div>
                       <div>
-                        <CardTitle className="text-xl md:text-2xl font-bold text-primary group-hover:text-accent transition-colors">
+                        <CardTitle className="text-xl md:text-2xl font-bold text-primary ">
                           {edu.degree}
                         </CardTitle>
                         {edu.specialization && (
-                          <p className="text-lg text-primary group-hover:text-accent transition-colors">
+                          <p className="text-lg text-primary ">
                             Specialization in {edu.specialization}
                           </p>
                         )}

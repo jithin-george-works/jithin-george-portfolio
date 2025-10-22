@@ -55,6 +55,8 @@ const Chatbot = () => {
   }, []);
 
   const handleSendMessage = async () => {
+    if (isStreaming) return; // ⛔ prevent new messages during streaming
+
     if (
       !message.trim() ||
       !wsRef.current ||
