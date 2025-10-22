@@ -28,7 +28,7 @@ const ThemeToggle = () => {
   initial={{ opacity: 0, scale: 0.9 }}
   animate={{ opacity: 1, scale: 1 }}
 >
-  <Button
+  {/* <Button
     variant="ghost"
     size="icon"
     onClick={() => setTheme(theme === "light" ? "dark" : "light")}
@@ -39,7 +39,7 @@ const ThemeToggle = () => {
       <Moon className="absolute inset-0 h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
     </span>
     <span className="sr-only">Toggle theme</span>
-  </Button>
+  </Button> */}
 </motion.div>
   );
 };
